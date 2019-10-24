@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { VendorService } from '../vendor.service';
+import { Vendor } from '../vendor.class';
 
 @Component({
   selector: 'app-vendor-edit',
@@ -7,9 +11,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorEditComponent implements OnInit {
 
-  constructor() { }
+  vendor: Vendor;
+  verifyDelete: boolean = true;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private vendorsvc: VendorService
+    ) { }
+
+  save(): void {
+    this.vendorsvc.change(this.vendor).subscribe(
+      res => { console.log("Response from vendor edit", res);
+      this.router.navigateByUrl('/vendors/list') 
+    },
+      err => { console.log(err); }
+    );
+  }
+  edit(): void {
+    this.router.navigateByUrl(`/vendors/edit/${this.vendor.id}`);
+  }
+  verify(): void {
+    this.verifyDelete = !this.verifyDelete;
+  }
+  delete(): void {
+    this.vendorsvc.remove(this.vendor).subscribe(
+      res => { console.log("Response from vendor edit", res);
+      this.router.navigateByUrl('/vendors/list') 
+    },
+      err => { console.log(err); }
+    );
+  }
 
   ngOnInit() {
+    let vendorid = this.route.snapshot.params.id;
+    this.vendorsvc.get(vendorid).subscribe(
+      vendor => {
+        this.vendor = vendor;
+        console.log("Vendor:", vendor);
+      },
+    );
   }
 
 }

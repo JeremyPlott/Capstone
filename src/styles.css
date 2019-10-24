@@ -6,3 +6,9 @@
     font-weight: bold;
     font-style: italic;
 }
+tr.tableheader a {
+    cursor: pointer;    
+}
+.search{    
+    float: right;  
+}

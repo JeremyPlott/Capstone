@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VendorService } from '../vendor.service';
+import { Vendor } from '../vendor.class';
 
 @Component({
   selector: 'app-vendor-list',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorListComponent implements OnInit {
 
-  constructor() { }
+  vendors: Vendor[] = [];
+  sortCriteria: string = "name";
+  sortOrder: string = "asc";
+  searchCriteria: string = "";
 
-  ngOnInit() {
+  sortBy(prop: string): void {
+    if(prop === this.sortCriteria) {
+      this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
+    }
+    this.sortCriteria = prop;
   }
 
+  constructor(
+    private vendorsvc: VendorService
+  ) { }
+
+  ngOnInit() {
+    this.vendorsvc.list().subscribe(
+      vendors => {
+        this.vendors = vendors;
+        console.log("Vendors", vendors);
+      }, 
+      err => {
+        console.error(err);
+      }
+    );
+  }
 }

@@ -7,6 +7,11 @@ import { UserCreateComponent } from './prs/user/user-create/user-create.componen
 import { UserDetailComponent } from './prs/user/user-detail/user-detail.component';
 import { UserEditComponent } from './prs/user/user-edit/user-edit.component';
 
+import { VendorListComponent } from './prs/vendor/vendor-list/vendor-list.component';
+import { VendorCreateComponent } from './prs/vendor/vendor-create/vendor-create.component';
+import { VendorDetailComponent } from './prs/vendor/vendor-detail/vendor-detail.component';
+import { VendorEditComponent } from './prs/vendor/vendor-edit/vendor-edit.component';
+
 const routes: Routes = [
   { path:'', redirectTo: '/users/list', pathMatch: 'full'},
 
@@ -14,6 +19,11 @@ const routes: Routes = [
   { path:'users/create', component: UserCreateComponent },
   { path:'users/detail/:id', component: UserDetailComponent },
   { path:'users/edit/:id', component: UserEditComponent },
+
+  { path:'vendors/list', component: VendorListComponent },
+  { path:'vendors/create', component: VendorCreateComponent },
+  { path:'vendors/detail/:id', component: VendorDetailComponent },
+  { path:'vendors/edit/:id', component: VendorEditComponent },
   
   { path:'**', component: FourOhFourComponent }
 ];
