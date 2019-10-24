@@ -6,8 +6,11 @@
     font-weight: bold;
     font-style: italic;
 }
+.tableheader td:hover {
+    color:rgb(28, 62, 218);
+}
 tr.tableheader a {
-    cursor: pointer;    
+    cursor: pointer;               
 }
 .search{    
     float: right;  

@@ -28,7 +28,7 @@ import { MenuitemComponent } from './core/menuitem/menuitem.component';
 import { SortPipe } from './core/pipes/sort.pipe';
 import { SearchUserPipe } from './core/pipes/search-user.pipe';
 import { SearchVendorPipe } from './core/pipes/search-vendor.pipe';
-import { SearchProductPipe} from '.core/pipes/search-product.pipe';
+import { SearchProductPipe} from './core/pipes/search-product.pipe';
 
 @NgModule({
   declarations: [
