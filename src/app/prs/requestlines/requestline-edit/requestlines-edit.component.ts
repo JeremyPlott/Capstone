@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './requestlines-edit.component.html',
   styleUrls: ['./requestlines-edit.component.css']
 })
-export class RequestlinesEditComponent implements OnInit {
+export class RequestLineEditComponent implements OnInit {
 
   product: Product = null;
   requestline: RequestLine;

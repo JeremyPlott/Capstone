@@ -1,4 +1,4 @@
-<div class="component">
+<div class="component" *ngIf="request">
     <div class="header">      
       <span class="pagetitle">Request Line Create</span> | 
       <span class="createlink">
@@ -12,18 +12,14 @@
         <td>
           <select [(ngModel)]="requestline.productId" type="number">              
             <option *ngFor="let product of products" [ngValue]="product.id">
-              {{product.id}} | {{product.name}} | {{product.price}}
+              {{product.name}} | {{product.price | currency}}
             </option>
           </select>            
         </td>
       </tr>
       <tr>
         <td>Quantity:</td>
-        <td><input [(ngModel)]="requestline.quantity" type="number" disabled></td>
-      </tr>
-      <tr>
-        <td>Total:</td>
-        <td><input [(ngModel)]="requestline.request.total" type="number" disabled></td>
+        <td><input [(ngModel)]="requestline.quantity" type="number"></td>
       </tr>
     </table>
   <button (click)="save()" class="btn btn-primary btn-sm">Save</button>

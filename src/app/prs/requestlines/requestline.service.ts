@@ -15,14 +15,14 @@ export class RequestLineService {
   get(id: string): Observable<RequestLine> {
     return this.http.get(`${baseUrl}/${id}`) as Observable<RequestLine>;
   }
-  create(request: RequestLine): Observable<any> {
-    return this.http.post(`${baseUrl}`, request) as Observable<any>;
+  create(requestline: RequestLine): Observable<any> {
+    return this.http.post(`${baseUrl}`, requestline) as Observable<any>;
   }
-  change(request: RequestLine): Observable<any> {
-    return this.http.put(`${baseUrl}/${request.id}`, request) as Observable<any>;
+  change(requestline: RequestLine): Observable<any> {
+    return this.http.put(`${baseUrl}/${requestline.id}`, requestline) as Observable<any>;
   }
-  remove(request: RequestLine): Observable<any> {
-    return this.http.delete(`${baseUrl}/${request.id}`) as Observable<any>;
+  remove(requestline: RequestLine): Observable<any> {
+    return this.http.delete(`${baseUrl}/${requestline.id}`) as Observable<any>;
   }
 
   constructor(private http: HttpClient) { }

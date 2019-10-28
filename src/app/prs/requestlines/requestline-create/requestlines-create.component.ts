@@ -19,6 +19,9 @@ export class RequestLineCreateComponent implements OnInit {
   requestline: RequestLine = new RequestLine();
   request: Request;
   products: Product[] = [];
+  rltotal: number = 0;
+  product: Product;
+  requestid: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,16 +33,28 @@ export class RequestLineCreateComponent implements OnInit {
   ) { }
 
   save(): void {
+    this.requestline.requestId = Number(this.requestid);
     this.requestlinesvc.create(this.requestline).subscribe(
       res => { console.log("Response from request line create", res);
-      this.router.navigateByUrl('/requests/edit/{{request.id}}') 
+      this.router.navigateByUrl(`/requests/edit/${this.request.id}`) 
     },
       err => { console.log(err); }
     );
   }
 
   ngOnInit() {
+
+    this.requestid = this.route.snapshot.params.id;    
+
+    this.requestsvc.get(this.requestid).subscribe(
+      request => {
+        this.request = request;
+        console.log("Request:", request);
+      },
+    );
+
     this.systemsvc.CheckLogin();  
+    
     this.productsvc.list().subscribe(
       products => {
         this.products = products;
@@ -48,14 +63,8 @@ export class RequestLineCreateComponent implements OnInit {
       err => {
         console.error(err);
       }
-    );
-    let requestid = this.route.snapshot.params.id;    
-    this.requestsvc.get(requestid).subscribe(
-      request => {
-        this.request = request;
-        console.log("Request:", request);
-      },
-    );
+    );  
+
   }
 
 }

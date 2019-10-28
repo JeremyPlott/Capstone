@@ -8,8 +8,11 @@ export class RequestLine {
     productId: number;
     quantity: number = 1;
 
+    rltotal: number = 0;    
+    
     request: Request;
     product: Product;
+    
 
     constructor(){}
 }
