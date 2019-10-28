@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user.class';
+import { SystemService } from '../../../core/system/system.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -14,10 +15,12 @@ export class UserDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private usersvc: UserService
+    private usersvc: UserService,
+    private systemsvc: SystemService
   ) { }
 
   ngOnInit() {
+    this.systemsvc.CheckLogin();
     let userid = this.route.snapshot.params.id;
     this.usersvc.get(userid).subscribe(
       user => {

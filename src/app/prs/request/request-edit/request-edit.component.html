@@ -1,0 +1,89 @@
+<div class="component" *ngIf="request">
+    <div class="header">      
+      <span class="pagetitle">Request Edit</span> | 
+      <span class="createlink">
+        <a routerLink="/requests/list">Back to request list</a>
+      </span>
+    </div>
+  <table class="table table.sm">
+    <tr>
+      <td>Id:</td>
+      <td>{{request.id}}</td>
+      <td><input [(ngModel)]="request.id" type="number" disabled></td>
+    </tr>
+    <tr hidden>
+      <td>User Id:</td>
+      <td>{{request.userId}}</td>
+      <td><input [(ngModel)]="request.userId" type="number" disabled></td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td>{{request.description}}</td>
+      <td><input [(ngModel)]="request.description" type="string"></td>
+    </tr>
+    <tr>
+      <td>Justification:</td>
+      <td>{{request.justification}}</td>
+      <td><input [(ngModel)]="request.justification" type="string"></td>
+    </tr>
+    <tr hidden>
+      <td>Rejection Reason:</td>
+      <td>{{request.rejectionReason}}</td>
+      <td><input [(ngModel)]="request.rejectionReason" type="string"></td>
+    </tr>
+    <tr>
+      <td>Delivery Mode:</td>
+      <td>{{request.deliveryMode}}</td>
+      <td><input [(ngModel)]="request.deliveryMode" type="string"></td>
+    </tr>
+    <tr hidden>
+      <td>Status:</td>
+      <td>{{request.status}}</td>
+      <td><input [(ngModel)]="request.status" type="string"></td>
+    </tr>
+    <tr>
+      <td>Total:</td>
+      <td>{{request.total | currency}}</td>
+      <td><input [(ngModel)]="request.total" type="number" disabled></td>
+    </tr>
+  </table>
+  <div>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>       
+    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+    <span>&nbsp;&nbsp; | &nbsp;&nbsp;</span>       
+    <button (click)="delete()" [disabled]="verifyDelete" class="btn btn-danger btn-sm">Delete Request</button>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>       
+    <input id="confirmdel" type="checkbox" (click)="verify()"> Confirm delete
+  </div>
+
+  <!-- <br><br> display the request lines
+
+  <div class="component">
+    <div class="header">      
+      <span class="pagetitle">Add Request Line</span> | 
+    </div>
+  
+    <table class="table table.sm">
+      <tr>
+        <td>Product:</td>
+        <td>
+          <select [(ngModel)]="requestline.productId" type="number">              
+            <option *ngFor="let product of products" [ngValue]="product.id">
+              {{product.id}} | {{product.name}} | {{product.price}}
+            </option>
+          </select>            
+        </td>
+      </tr>
+      <tr>
+        <td>Quantity:</td>
+        <td><input [(ngModel)]="requestline.quantity" type="number"></td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td><input [(ngModel)]="requestline.request.total" type="number" disabled></td>
+      </tr>
+    </table>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>       
+    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+  </div>
+</div> -->

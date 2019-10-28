@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VendorService } from '../vendor.service';
 import { Vendor } from '../vendor.class';
+import { SystemService } from '../../../core/system/system.service';
 
 @Component({
   selector: 'app-vendor-detail',
@@ -14,10 +15,12 @@ export class VendorDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private vendorsvc: VendorService
+    private vendorsvc: VendorService,
+    private systemsvc: SystemService
   ) { }
 
   ngOnInit() {
+    this.systemsvc.CheckLogin();
     let vendorid = this.route.snapshot.params.id;
     this.vendorsvc.get(vendorid).subscribe(
       vendor => {

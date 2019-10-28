@@ -1,0 +1,52 @@
+<div class="component" *ngIf="request">
+    <div class="header">      
+      <span class="pagetitle">Request Detail</span> | 
+      <span class="actiondetail">
+        <a routerLink="/requests/edit/{{request.id}}">Edit</a>
+      </span> |
+      <span class="createlink">
+        <a routerLink="/requests/list">Back to request list</a>
+      </span>
+    </div>
+    <table class="table table.sm">
+      <tr class="tableheader">
+        <td>Description</td>
+        <td>Status</td>
+        <td>Total</td>
+        <td>User</td>
+      </tr>
+      <tr>
+        <td>{{request.description}}</td>
+        <td>{{request.status}}</td>
+        <td>{{request.total | currency}}</td>
+        <td>{{request.user.username}}</td>
+      </tr>
+    </table>
+</div>
+<div *ngIf="request">
+  <table class="table table.sm">
+    <tr class="tableheader">
+      <td>Product</td>
+      <td>Quantity</td>
+      <td>Price</td>
+      <td>Subtotal</td>
+      <td>Actions</td>
+    </tr>
+    <tr *ngFor="let requestline of request.requestLines">      
+      <td>{{requestline.product.name}}</td>
+      <td>{{requestline.quantity}}</td>
+      <td>{{requestline.product.price | currency}}</td>
+      <td>{{requestline.product.price * requestline.quantity | currency}}</td>
+      <td>
+        <span class="actiondetail">
+          <a>Edit</a> |
+          <a>Delete</a>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Total:</td>
+      <td>{{request.total | currency}}</td>
+    </tr>
+  </table>
+</div>

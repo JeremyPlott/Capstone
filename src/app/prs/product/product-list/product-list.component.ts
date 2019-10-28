@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product.class';
 import { Vendor } from '../../vendor/vendor.class';
 import { VendorService } from '../../vendor/vendor.service';
+import { SystemService } from '../../../core/system/system.service';
 
 @Component({
   selector: 'app-product-list',
@@ -26,10 +27,12 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productsvc: ProductService,
-    private vendorsvc: VendorService
+    private vendorsvc: VendorService,
+    private systemsvc: SystemService
   ) { }
 
   ngOnInit() {
+    this.systemsvc.CheckLogin();
     this.productsvc.list().subscribe(
       products => {
         this.products = products;

@@ -3,9 +3,9 @@
 </div>
 <table class="logintable">
   <tr>
-    <td><input [(ngModel)]="username" type="string" placeholder="Username">
+    <td><input [(ngModel)]="this.username" type="string" placeholder="Username">
     <br>    
-    <input [(ngModel)]="password" type="password" placeholder="Password"></td>
+    <input [(ngModel)]="this.password" type="password" placeholder="Password"></td>
   </tr>
   <tr>
     <button (click)="login()">Login</button>

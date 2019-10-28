@@ -1,5 +1,4 @@
 import { Vendor } from '../vendor/vendor.class';
-import { CurrencyPipe } from '@angular/common';
 
 export class Product {
 

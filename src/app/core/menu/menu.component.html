@@ -1,5 +1,6 @@
 <nav>
   <ul>
     <app-menuitem *ngFor="let menu of menus" [menu]="menu"></app-menuitem>
+    <span style="color:yellow; float: right;" >[{{loggeduser}}]</span>
   </ul>
 </nav>

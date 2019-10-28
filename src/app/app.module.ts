@@ -2,11 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './core/home/home.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooldispPipe } from './core/pipes/booldisp.pipe';
 import { FourOhFourComponent } from './core/four-oh-four/four-oh-four.component';
+
+import { MenuComponent } from './core/menu/menu.component';
+import { MenuitemComponent } from './core/menuitem/menuitem.component';
 
 import { UserListComponent } from './prs/user/user-list/user-list.component';
 import { UserDetailComponent } from './prs/user/user-detail/user-detail.component';
@@ -23,12 +27,20 @@ import { ProductEditComponent } from './prs/product/product-edit/product-edit.co
 import { ProductDetailComponent } from './prs/product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './prs/product/product-create/product-create.component';
 
-import { MenuComponent } from './core/menu/menu.component';
-import { MenuitemComponent } from './core/menuitem/menuitem.component';
+import { RequestCreateComponent } from './prs/request/request-create/request-create.component';
+import { RequestEditComponent } from './prs/request/request-edit/request-edit.component';
+import { RequestListComponent } from './prs/request/request-list/request-list.component';
+import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
+
+import { RequestLineCreateComponent } from './prs/requestlines/requestline-create/requestlines-create.component';
+import { RequestLineEditComponent } from './prs/requestlines/requestline-edit/requestlines-edit.component';
+
 import { SortPipe } from './core/pipes/sort.pipe';
 import { SearchUserPipe } from './core/pipes/search-user.pipe';
 import { SearchVendorPipe } from './core/pipes/search-vendor.pipe';
 import { SearchProductPipe} from './core/pipes/search-product.pipe';
+import { SearchRequestPipe} from './core/pipes/search-request.pipe';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +48,8 @@ import { SearchProductPipe} from './core/pipes/search-product.pipe';
     UserListComponent,
     BooldispPipe,
     FourOhFourComponent,
+    MenuComponent,
+    MenuitemComponent,
     UserDetailComponent,
     UserCreateComponent,
     UserEditComponent,
@@ -47,12 +61,18 @@ import { SearchProductPipe} from './core/pipes/search-product.pipe';
     ProductEditComponent,
     ProductDetailComponent,
     ProductCreateComponent,
-    MenuComponent,
-    MenuitemComponent,
+    RequestCreateComponent,
+    RequestEditComponent,
+    RequestListComponent,
+    RequestDetailComponent,
+    RequestLineCreateComponent,
+    RequestLineEditComponent,
     SortPipe,
     SearchUserPipe,
     SearchVendorPipe,
-    SearchProductPipe
+    SearchProductPipe,
+    SearchRequestPipe,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product.class';
 import { VendorService } from '../../vendor/vendor.service';
 import { Vendor } from '../../vendor/vendor.class';
+import { SystemService } from '../../../core/system/system.service';
 
 @Component({
   selector: 'app-product-create',
@@ -19,6 +20,7 @@ export class ProductCreateComponent implements OnInit {
     private router: Router,
     private productsvc: ProductService,
     private vendorsvc: VendorService,
+    private systemsvc: SystemService
   ) { }
 
   save(): void {
@@ -31,6 +33,7 @@ export class ProductCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.systemsvc.CheckLogin();
     this.vendorsvc.list().subscribe(
       vendors => {
         this.vendors = vendors;
