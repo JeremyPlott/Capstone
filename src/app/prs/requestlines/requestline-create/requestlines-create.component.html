@@ -7,28 +7,24 @@
     </div>
 
     <table class="table table.sm">
-        <tr>
-          <td>Id:</td>
-          <td><input [(ngModel)]="requestline.requestId" type="number" disabled></td>
-        </tr>
-        <tr>
-          <td>Product:</td>
-          <td>
-            <select [(ngModel)]="requestline.productId" type="number">              
-              <option *ngFor="let product of products" [ngValue]="product.id">
-                {{product.id}} | {{product.name}} | {{product.price}}
-              </option>
-            </select>            
-          </td>
-        </tr>
-        <tr>
-          <td>Quantity:</td>
-          <td><input [(ngModel)]="requestline.quantity" type="number" disabled></td>
-        </tr>
-        <tr>
-          <td>Total:</td>
-          <td><input [(ngModel)]="requestline.request.total" type="number" disabled></td>
-        </tr>
-      </table>
+      <tr>
+        <td>Product:</td>
+        <td>
+          <select [(ngModel)]="requestline.productId" type="number">              
+            <option *ngFor="let product of products" [ngValue]="product.id">
+              {{product.id}} | {{product.name}} | {{product.price}}
+            </option>
+          </select>            
+        </td>
+      </tr>
+      <tr>
+        <td>Quantity:</td>
+        <td><input [(ngModel)]="requestline.quantity" type="number" disabled></td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td><input [(ngModel)]="requestline.request.total" type="number" disabled></td>
+      </tr>
+    </table>
   <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
 </div>
