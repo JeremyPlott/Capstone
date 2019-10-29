@@ -34,9 +34,10 @@ export class RequestLineCreateComponent implements OnInit {
 
   save(): void {
     this.requestline.requestId = Number(this.requestid);
+    this.request.status = "REVIEW";
     this.requestlinesvc.create(this.requestline).subscribe(
       res => { console.log("Response from request line create", res);
-      this.router.navigateByUrl(`/requests/edit/${this.request.id}`) 
+      this.router.navigateByUrl(`/requests/detail/${this.request.id}`) 
     },
       err => { console.log(err); }
     );

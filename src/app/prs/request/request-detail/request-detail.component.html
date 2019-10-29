@@ -39,14 +39,18 @@
       <td>{{requestline.product.price * requestline.quantity | currency}}</td>
       <td>
         <span class="actiondetail">
-          <a>Edit</a> |
-          <a>Delete</a>
+          <a routerLink="/requestlines/edit/{{requestline.id}}">Edit</a> | 
+          <button (click)="deleteline(requestline)" class="btn btn-danger btn-sm">Delete</button>
         </span>
       </td>
     </tr>
-    <tr>
-      <td>Total:</td>
-      <td>{{request.total | currency}}</td>
-    </tr>
   </table>
+  <div> 
+    <p>      
+      <span class="tableheader">Total: </span><span>{{request.total | currency}}</span>
+    </p>
+    <!-- <button class="btn btn-primary btn-sm" (click)="goRlCreate(request)" style="color:white">Add Line</button> |  -->
+    <button class="btn btn-primary btn-sm" (click)="addLine(request)" style="color:white">Add Line</button> | 
+    <button (click)="save()" class="btn btn-success btn-sm">Submit Request</button>
+  </div>
 </div>

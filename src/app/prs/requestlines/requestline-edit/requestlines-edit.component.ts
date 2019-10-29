@@ -37,6 +37,14 @@ export class RequestLineEditComponent implements OnInit {
     );
   }
 
+  delete(): void {
+    this.requestlinesvc.remove(this.requestline).subscribe(
+      res => { console.log("Response from request edit", res);
+    },
+      err => { console.log(err); }
+    );
+  }
+
   ngOnInit() {
     this.systemsvc.CheckLogin();
   }

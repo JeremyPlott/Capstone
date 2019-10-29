@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Request } from './request.class';
+import { RequestLineService } from '../requestlines/requestline.service';
 
 const baseUrl = "http://localhost:50288/api/requests";
 @Injectable({
