@@ -32,6 +32,8 @@ import { RequestEditComponent } from './prs/request/request-edit/request-edit.co
 import { RequestListComponent } from './prs/request/request-list/request-list.component';
 import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
 
+import { RequestReviewComponent } from './prs/request/request-review/request-review.component';
+
 import { RequestLineCreateComponent } from './prs/requestlines/requestline-create/requestlines-create.component';
 import { RequestLineEditComponent } from './prs/requestlines/requestline-edit/requestlines-edit.component';
 
@@ -40,7 +42,7 @@ import { SearchUserPipe } from './core/pipes/search-user.pipe';
 import { SearchVendorPipe } from './core/pipes/search-vendor.pipe';
 import { SearchProductPipe} from './core/pipes/search-product.pipe';
 import { SearchRequestPipe} from './core/pipes/search-request.pipe';
-
+  
 
 @NgModule({
   declarations: [
@@ -67,12 +69,14 @@ import { SearchRequestPipe} from './core/pipes/search-request.pipe';
     RequestDetailComponent,
     RequestLineCreateComponent,
     RequestLineEditComponent,
+    RequestReviewComponent,
     SortPipe,
     SearchUserPipe,
     SearchVendorPipe,
     SearchProductPipe,
     SearchRequestPipe,
     HomeComponent,
+    RequestReviewComponent,
   ],
   imports: [
     BrowserModule,

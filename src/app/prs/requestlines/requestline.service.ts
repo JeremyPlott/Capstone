@@ -18,8 +18,8 @@ export class RequestLineService {
   create(requestline: RequestLine): Observable<any> {
     return this.http.post(`${baseUrl}`, requestline) as Observable<any>;
   }
-  change(requestline: RequestLine): Observable<any> {
-    return this.http.put(`${baseUrl}/${requestline.id}`, requestline) as Observable<any>;
+  change(requestline: RequestLine): Observable<RequestLine> {
+    return this.http.put(`${baseUrl}/${requestline.id}`, requestline) as Observable<RequestLine>;
   }
   remove(requestline: RequestLine): Observable<any> {
     return this.http.delete(`${baseUrl}/${requestline.id}`) as Observable<any>;

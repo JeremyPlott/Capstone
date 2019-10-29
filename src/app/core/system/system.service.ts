@@ -18,6 +18,11 @@ export class SystemService {
     private router: Router;
     private route: ActivatedRoute;
 
+    CheckLogin() {
+        if(this.user == null) {
+            this.router.navigateByUrl('/home')
+        }
+    }
     
     login(username, password): Observable<User> | null {      
         return this.http.get(`${baseUrl}/${username}/${password}`) as Observable<User>;
@@ -35,11 +40,6 @@ export class SystemService {
         this.user = null;
     }
   
-    CheckLogin() {
-        if(this.user == null) {
-            this.router.navigateByUrl('/home')
-        }
-    }
 
 
 

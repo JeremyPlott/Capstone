@@ -1,10 +1,7 @@
 <app-menu></app-menu>
 <div class="component">
   <div class="header">
-    <span class="pagetitle">Request List</span> | 
-    <span class="createlink">
-      <a routerLink="/requests/create">Create</a>
-    </span>
+    <span class="pagetitle">Request Review</span>
     <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
   </div>
   <div>    
@@ -25,12 +22,6 @@
         <td>{{request.description}}</td>
         <td>{{request.justification}}</td>
         <td>{{request.total | currency}}</td>
-        <td>
-          <span class="actiondetail">
-            <a routerLink="/requests/detail/{{request.id}}">Details</a> |
-            <a routerLink="/requests/edit/{{request.id}}">Edit</a>
-          </span>
-        </td>
       </tr>
     </table>
   </div>

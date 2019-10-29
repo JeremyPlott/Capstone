@@ -29,7 +29,7 @@ export class RequestLineEditComponent implements OnInit {
   ) { }
 
   save(): void {
-    this.requestlinesvc.create(this.requestline).subscribe(
+    this.requestlinesvc.change(this.requestline).subscribe(
       res => { console.log("Response from request line edit", res);
       this.router.navigateByUrl('/requests/edit/{{request.id}}') 
     },

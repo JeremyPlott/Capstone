@@ -23,6 +23,8 @@ import { RequestCreateComponent } from './prs/request/request-create/request-cre
 import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './prs/request/request-edit/request-edit.component';
 
+import { RequestReviewComponent } from './prs/request/request-review/request-review.component';
+
 import { RequestLineCreateComponent } from './prs/requestlines/requestline-create/requestlines-create.component';
 import { RequestLineEditComponent } from './prs/requestlines/requestline-edit/requestlines-edit.component';
 
@@ -50,6 +52,8 @@ const routes: Routes = [
   { path:'requests/detail/:id', component: RequestDetailComponent },
   { path:'requests/edit/:id', component: RequestEditComponent },
 
+  { path:'requests/review', component: RequestReviewComponent },
+  
   { path:'requestlines/create/:id', component: RequestLineCreateComponent },
   { path:'requestlines/edit/:id', component: RequestLineEditComponent },
   
@@ -57,7 +61,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
