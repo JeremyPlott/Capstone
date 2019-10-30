@@ -6,11 +6,20 @@ import { UserService } from '../../user/user.service';
 import { RequestLine } from '../../requestlines/requestline.class';
 import { RequestLineService } from '../../requestlines/requestline.service';
 import { SystemService } from '../../../core/system/system.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-request-review',
   templateUrl: './request-review.component.html',
-  styleUrls: ['./request-review.component.css']
+  styleUrls: ['./request-review.component.css'],
+  animations: [
+    trigger('detailExpand', [
+    state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+    state('expanded', style({height: '*'})),
+    transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class RequestReviewComponent implements OnInit {
 
@@ -20,6 +29,19 @@ export class RequestReviewComponent implements OnInit {
   sortOrder: string = "asc";
   searchCriteria: string = "";
   rid: string;
+  showtable: boolean = false;
+  requestlines: RequestLine[] = [];
+
+  columnsToDisplay = ['Id', 'Status', 'User', 'Description', 'Total'];
+
+
+  showtbl() {
+    this.showtable = !this.showtable;
+  }
+
+  // findDetails(request) {
+  //   return this.requestlines.filter(rl => rl.requestId === request.id);
+  // }
 
   sortBy(prop: string): void {
     if(prop === this.sortCriteria) {
@@ -31,7 +53,8 @@ export class RequestReviewComponent implements OnInit {
   constructor(
     private requestsvc: RequestService,
     private usersvc: UserService,
-    private systemsvc: SystemService
+    private systemsvc: SystemService,
+    private requestlinesvc: RequestLineService
   ) { }
 
   ngOnInit() {

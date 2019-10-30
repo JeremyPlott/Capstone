@@ -4,25 +4,79 @@
     <span class="pagetitle">Request Review</span>
     <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
   </div>
-  <div>    
+<div> 
+
+    
+    <table class="table table-hover table-sm table-responsive-xl">
+      <thead class="tableheader">
+        <th>Id</th>
+        <th>Status</th>
+        <th>User</th>
+        <th>Description</th>
+        <th>Total</th>
+      </thead>
+
+      <tbody>
+
+        <ng-container *ngFor="let request of requests">          
+          <tr (click)="showtable = !showtable">
+            <td>{{request.id}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.user.username}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.total | currency}}</td>
+          </tr>
+          <ng-container *ngIf="showtable">
+            <tr *ngFor="let requestline of request.requestLines">
+              <td>{{requestline.product.name}}</td>
+              <td>{{requestline.quantity}}</td>
+              <td>{{requestline.product.price | currency}}</td>
+              <td>{{requestline.product.price * requestline.quantity | currency}}</td>
+            </tr>
+          </ng-container>
+
+        </ng-container>
+      </tbody>
+    </table>
+    
+
+      <!-- 
     <table class="table table.sm">
       <tr class="tableheader">
         <td><a (click)="sortBy('id')">Id</a></td>
         <td><a (click)="sortBy('status')">Status</a></td>
         <td><a (click)="sortBy('user.username')">User</a></td>
         <td><a (click)="sortBy('description')">Description</a></td>
-        <td><a (click)="sortBy('justification')">Justification</a></td>
+        <td hidden><a (click)="sortBy('justification')">Justification</a></td>
         <td><a (click)="sortBy('total')">Total</a></td>
-        <td>Actions</td>
+        <td></td>
       </tr>
       <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder ">
         <td>{{request.id}}</td>
         <td>{{request.status}}</td>
         <td>{{request.user.username}}</td>
         <td>{{request.description}}</td>
-        <td>{{request.justification}}</td>
+        <td hidden>{{request.justification}}</td>
         <td>{{request.total | currency}}</td>
+        <td>
+          <button (click)="showtbl()" class="btn btn-primary btn-sm">⯆</button>
+        </td>
       </tr>
-    </table>
+<tr *ngIf="showtable">
+        <table class="table table.sm">
+          <tr class="tableheader">
+            <td>Product</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>Subtotal</td>
+          </tr>
+          <tr *ngFor="let requestline of request.requestLines">
+            <td>{{product.name}}</td>
+            <td>{{quantity}}</td>
+            <td>{{product.price | currency}}</td>
+            <td>{{product.price * quantity | currency}}</td>
+          </tr>
+      </table>
+    </table>-->
   </div>
 </div>

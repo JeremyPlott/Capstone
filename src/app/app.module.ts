@@ -42,7 +42,7 @@ import { SearchUserPipe } from './core/pipes/search-user.pipe';
 import { SearchVendorPipe } from './core/pipes/search-vendor.pipe';
 import { SearchProductPipe} from './core/pipes/search-product.pipe';
 import { SearchRequestPipe} from './core/pipes/search-request.pipe';
-  
+
 
 @NgModule({
   declarations: [
@@ -82,7 +82,7 @@ import { SearchRequestPipe} from './core/pipes/search-request.pipe';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
