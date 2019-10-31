@@ -32,7 +32,6 @@ export class VendorListComponent implements OnInit {
     this.vendorsvc.list().subscribe(
       vendors => {
         this.vendors = vendors;
-        console.log("Vendors", vendors);
       }, 
       err => {
         console.error(err);

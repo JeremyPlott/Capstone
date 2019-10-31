@@ -29,14 +29,12 @@ export class ProductDetailComponent implements OnInit {
     this.productsvc.get(productid).subscribe(
       product => {
         this.product = product;
-        console.log("Product:", product);
       },
       err => { console.error(err); }
     );
     this.vendorsvc.list().subscribe(
       vendors => {
         this.vendors = vendors;
-        console.log("Vendors", vendors);
       }, 
       err => {
         console.error(err);

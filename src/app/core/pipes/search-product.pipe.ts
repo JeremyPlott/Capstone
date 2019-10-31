@@ -19,8 +19,8 @@ export class SearchProductPipe implements PipeTransform {
         || product.unit.toLowerCase().includes(substr)
         || product.photoPath.toLowerCase().includes(substr)
         || product.vendorId.toString().includes(substr)
-        || (product.vendor.name.toLowerCase().includes(substr))
-        || (product.vendor.code.toLowerCase().includes(substr))
+        || product.vendor.name.toLowerCase().includes(substr)
+        || product.vendor.code.toLowerCase().includes(substr)
         ) {
         selectedProducts.push(product);
         continue;

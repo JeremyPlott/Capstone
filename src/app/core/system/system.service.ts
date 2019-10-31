@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { User } from '../../prs/user/user.class'
 import { UserService } from '../../prs/user/user.service'
 
+
 const baseUrl = "http://localhost:50288/api/users";
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,6 @@ export class SystemService {
 
     user: User = null;
     usersvc: UserService;
-    private router: Router;
-    private route: ActivatedRoute;
 
     CheckLogin() {
         if(this.user == null) {
@@ -40,8 +39,8 @@ export class SystemService {
         this.user = null;
     }
   
-
-
-
-  constructor(private http: HttpClient) { }
+    constructor(
+      private http: HttpClient,
+      private router: Router,
+    ) { }
 }

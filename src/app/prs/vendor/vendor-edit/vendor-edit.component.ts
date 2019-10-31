@@ -51,7 +51,6 @@ export class VendorEditComponent implements OnInit {
     this.vendorsvc.get(vendorid).subscribe(
       vendor => {
         this.vendor = vendor;
-        console.log("Vendor:", vendor);
       },
     );
   }

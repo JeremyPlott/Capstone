@@ -50,7 +50,6 @@ export class RequestLineCreateComponent implements OnInit {
     this.requestsvc.get(this.requestid).subscribe(
       request => {
         this.request = request;
-        console.log("Request:", request);
       },
     );
 

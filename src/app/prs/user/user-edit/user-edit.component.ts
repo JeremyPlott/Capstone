@@ -59,7 +59,6 @@ export class UserEditComponent implements OnInit {
     this.usersvc.get(userid).subscribe(
       user => {
         this.user = user;
-        console.log("User:", user);
       },
       err => { console.error(err); }
     );

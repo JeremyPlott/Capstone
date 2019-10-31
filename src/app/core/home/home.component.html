@@ -1,13 +1,18 @@
-<div class="hometitle">
-  <h1>PRS Title</h1>>
+<div class="centercontainer">  
+
+  <div class="hometitle">
+    <h1>Purchase Request System</h1>
+    <br><br>
+  </div>
+
+  <div class="logintable">
+    <div class="form-group">
+      <input [(ngModel)]="this.username" type="string" class="form-control" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="this.password" type="password" class="form-control" placeholder="Password">
+    </div>
+    <button type="submit" (click)="login()" class="btn btn-primary">Login</button>
+  </div>
+
 </div>
-<table class="logintable">
-  <tr>
-    <td><input [(ngModel)]="this.username" type="string" placeholder="Username">
-    <br>    
-    <input [(ngModel)]="this.password" type="password" placeholder="Password"></td>
-  </tr>
-  <tr>
-    <button (click)="login()">Login</button>
-  </tr>
-</table>

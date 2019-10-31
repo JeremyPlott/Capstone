@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FourOhFourComponent } from './core/four-oh-four/four-oh-four.component';
 import { HomeComponent } from './core/home/home.component';
+import { AboutComponent } from './core/about/about.component';
 
 import { UserListComponent } from './prs/user/user-list/user-list.component';
 import { UserCreateComponent } from './prs/user/user-create/user-create.component';
@@ -33,6 +34,7 @@ import { TabletestComponent } from './core/logger/tabletest/tabletest.component'
 const routes: Routes = [
   { path:'', redirectTo: '/home', pathMatch: 'full'},
   { path:'home', component: HomeComponent },
+  { path:'about', component: AboutComponent },
   
   { path:'users/list', component: UserListComponent },
   { path:'users/create', component: UserCreateComponent },

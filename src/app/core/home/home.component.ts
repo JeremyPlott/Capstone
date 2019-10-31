@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   }    
 
   SetUser(user: User) { 
-      this.user = user; 
+    this.user = user; 
   }
 
   ClearUser() {
@@ -61,7 +61,6 @@ export class HomeComponent implements OnInit {
       err => {
         console.error(err);
       }
-    );
-    
+    );    
   }  
 }

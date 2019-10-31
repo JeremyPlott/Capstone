@@ -42,11 +42,13 @@ import { SearchUserPipe } from './core/pipes/search-user.pipe';
 import { SearchVendorPipe } from './core/pipes/search-vendor.pipe';
 import { SearchProductPipe} from './core/pipes/search-product.pipe';
 import { SearchRequestPipe} from './core/pipes/search-request.pipe';
+import { SearchReviewPipe } from './core/pipes/search-review.pipe'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatSliderModule } from '@angular/material/slider';
-import { TabletestComponent } from './core/logger/tabletest/tabletest.component'
+import { TabletestComponent } from './core/logger/tabletest/tabletest.component';
+import { AboutComponent } from './core/about/about.component';
 
 
 
@@ -83,7 +85,9 @@ import { TabletestComponent } from './core/logger/tabletest/tabletest.component'
     SearchRequestPipe,
     HomeComponent,
     RequestReviewComponent,
-    TabletestComponent,    
+    TabletestComponent,
+    SearchReviewPipe,
+    AboutComponent,    
   ],
   imports: [
     BrowserModule,

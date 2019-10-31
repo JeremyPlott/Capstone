@@ -38,7 +38,6 @@ export class RequestListComponent implements OnInit {
     this.requestsvc.list().subscribe(
       requests => {
         this.requests = requests;
-        console.log("Requests", requests);
       }, 
       err => {
         console.error(err);
@@ -47,7 +46,6 @@ export class RequestListComponent implements OnInit {
     this.usersvc.list().subscribe(
       users => {
         this.users = users;
-        console.log("Users", users);
       }, 
       err => {
         console.error(err);

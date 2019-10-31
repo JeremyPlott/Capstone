@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Request } from '../../prs/request/request.class';
 
 @Pipe({
-  name: 'searchRequests'
+  name: 'searchReview'
 })
-export class SearchRequestPipe implements PipeTransform {
+export class SearchReviewPipe implements PipeTransform {
 
   transform(requests: Request[], searchCriteria: string = ''): Request[] {
     if(searchCriteria == '') { return requests; }

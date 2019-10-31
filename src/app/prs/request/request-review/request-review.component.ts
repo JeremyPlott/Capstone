@@ -107,7 +107,6 @@ export class RequestReviewComponent implements OnInit {
     this.requestsvc.listRevs(this.rid).subscribe(
       requests => {
         this.requests = requests;
-        console.log("Reviews", requests);
       }, 
       err => {
         console.error(err);
@@ -116,7 +115,6 @@ export class RequestReviewComponent implements OnInit {
     this.usersvc.list().subscribe(
       users => {
         this.users = users;
-        console.log("Users", users);
       }, 
       err => {
         console.error(err);

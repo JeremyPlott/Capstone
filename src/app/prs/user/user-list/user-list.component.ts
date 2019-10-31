@@ -32,7 +32,6 @@ export class UserListComponent implements OnInit {
     this.usersvc.list().subscribe(
       users => {
         this.users = users;
-        console.log("Users", users);
       }, 
       err => {
         console.error(err);

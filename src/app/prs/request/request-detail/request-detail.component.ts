@@ -91,14 +91,12 @@ export class RequestDetailComponent implements OnInit {
     this.requestsvc.get(requestid).subscribe(
       request => {
         this.request = request;
-        console.log("Request:", request);
       },
       err => { console.error(err); }
     );
     this.productsvc.list().subscribe(
       products => {
         this.products = products;
-        console.log("Products", products);
       }, 
       err => {
         console.error(err);

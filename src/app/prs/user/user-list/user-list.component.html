@@ -17,7 +17,7 @@
         <td><a (click)="sortBy('isAdmin')">Admin</a></td>
         <td>Actions</td>
       </tr>
-      <tr *ngFor="let user of users | searchUsers:searchCriteria | sort:sortCriteria:sortOrder ">
+      <tr *ngFor="let user of users | searchUsers:searchCriteria | sort:sortCriteria:sortOrder">
         <td>{{user.id}}</td>
         <td>{{user.username}}</td>
         <td>{{user.firstname}} {{user.lastname}}</td>

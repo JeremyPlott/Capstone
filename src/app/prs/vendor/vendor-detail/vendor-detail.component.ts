@@ -25,7 +25,6 @@ export class VendorDetailComponent implements OnInit {
     this.vendorsvc.get(vendorid).subscribe(
       vendor => {
         this.vendor = vendor;
-        console.log("Vendor:", vendor);
       },
       err => { console.error(err); }
     );

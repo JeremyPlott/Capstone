@@ -36,7 +36,6 @@ export class ProductListComponent implements OnInit {
     this.productsvc.list().subscribe(
       products => {
         this.products = products;
-        console.log("Products", products);
       }, 
       err => {
         console.error(err);
@@ -45,7 +44,6 @@ export class ProductListComponent implements OnInit {
     this.vendorsvc.list().subscribe(
       vendors => {
         this.vendors = vendors;
-        console.log("Vendors", vendors);
       }, 
       err => {
         console.error(err);

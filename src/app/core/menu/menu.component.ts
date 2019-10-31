@@ -9,17 +9,17 @@ import { SystemService } from '../system/system.service';
 })
 export class MenuComponent implements OnInit {
 
-  loggeduser: string = this.systemsvc.user.username;
+  loggeduser: string;
 
   menus: Menu[] = [
-    { display: 'PRS', link: '/home', tip: 'Home page'},
+    // { display: 'PRS', link: '/home', tip: 'Home page'},
     { display: 'Users', link: '/users/list', tip: 'User list'}, 
     { display: 'Vendors', link: '/vendors/list', tip: 'Vendor list'},
     { display: 'Products', link: '/products/list', tip: 'Product list'},
     { display: 'Requests', link: '/requests/list', tip: 'Request list'},
     { display: 'Review', link: '/requests/review', tip: 'Requests to be reviewed'},
     { display: 'About', link: '/about', tip: 'About me'},
-    { display: 'Login/out', link: '/login', tip: 'Login'},
+    { display: 'Logout', link: '/home', tip: 'Logout'},
   ];
 
   constructor(
@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.systemsvc.CheckLogin();
+    this.loggeduser = this.systemsvc.user.username;
   }
 
 }
