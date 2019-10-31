@@ -33,11 +33,58 @@ export class RequestReviewComponent implements OnInit {
   rid: string;
   showtable: boolean = false;
   requestlines: RequestLine[] = [];
-  idx: number;
+  idx: number = 0;
+  request: Request;
+  showreject: boolean = false;
 
   showtbl(id) { 
+    if(this.idx == id) {
+      this.idx = 0;
+      this.showtable = !this.showtable;    
+      return;
+    }
     this.idx = id;
     this.showtable = !this.showtable;    
+  }
+  showrej() {
+    this.showreject = !this.showreject;
+  }
+
+  approve(request: Request): void {
+    this.requestsvc.approve(request).subscribe(
+      res => { console.log("Response from request approve", res);
+      this.refresh();
+    },
+      err => { console.log(err); }
+    );
+  }
+  deny(request: Request): void {    
+    this.requestsvc.deny(request).subscribe(
+      res => { console.log("Response from request deny", res);
+      this.refresh();
+    },
+    err => { console.log(err); }
+    );
+  }
+
+  refresh(): void {
+    this.requestsvc.listRevs(this.rid).subscribe(
+      requests => {
+        this.requests = requests;
+        console.log("Reviews", requests);
+      }, 
+      err => {
+        console.error(err);
+      }
+    );
+  }
+
+  save(): void {
+    this.requestsvc.change(this.request).subscribe(
+      res => { console.log("Response from request edit", res);
+    },
+      err => { console.log(err); }
+    );  
   }
 
   sortBy(prop: string): void {

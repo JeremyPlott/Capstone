@@ -103,18 +103,7 @@ export class RequestDetailComponent implements OnInit {
       err => {
         console.error(err);
       }
-    );
-
-    // this.router.routeReuseStrategy.shouldReuseRoute = function(){
-    //   return false;
-    // };
-    // this.router.events.subscribe((evt) => {
-    //   if (evt instanceof NavigationEnd) {
-    //       this.router.navigated = false;
-    //       window.scrollTo(0, 0);
-    //   }
-    // });
-      
+    );     
   }
 
 }

@@ -26,11 +26,10 @@ export class RequestCreateComponent implements OnInit {
   save(): void {
     this.requestsvc.create(this.request).subscribe(
       res => { console.log("Response from request create", res);
+      this.router.navigateByUrl(`/requests/detail/${res.id}`);
     },
     err => { console.log(err); }
-    );
-    let id = this.request.id;
-    this.router.navigateByUrl(`/requests/detail/${id}`) 
+    );    
   }
 
   ngOnInit() {

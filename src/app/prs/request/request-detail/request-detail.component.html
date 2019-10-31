@@ -10,12 +10,14 @@
     </div>
     <table class="table table.sm">
       <tr class="tableheader">
+        <td>Id</td>
         <td>Description</td>
         <td>Status</td>
         <td>Total</td>
         <td>User</td>
       </tr>
       <tr>
+        <td>{{request.id}}</td>
         <td>{{request.description}}</td>
         <td>{{request.status}}</td>
         <td>{{request.total | currency}}</td>
@@ -42,7 +44,7 @@
         </select>            
       </td>
       <!-- <td>{{requestline.quantity}}</td> -->
-      <td><input [(ngModel)]="requestline.quantity" type="number"></td>
+      <td><input [(ngModel)]="requestline.quantity" type="number" oninput="this.value = Math.abs(this.value)"></td>
       <td>{{requestline.product.price | currency}}</td>
       <td>{{requestline.product.price * requestline.quantity | currency}}</td>
       <td>

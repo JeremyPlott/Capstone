@@ -34,8 +34,8 @@ export class RequestService {
     return this.http.put(`${baseUrl}/approve/${request.id}`, request) as Observable<any>;
   }
 
-  reject(request: Request): Observable<any> {
-    return this.http.put(`${baseUrl}/reject/${request.id}`, request) as Observable<any>;
+  deny(request: Request): Observable<any> {
+    return this.http.put(`${baseUrl}/deny/${request.id}`, request) as Observable<any>;
   }
 
   constructor(private http: HttpClient) { }
