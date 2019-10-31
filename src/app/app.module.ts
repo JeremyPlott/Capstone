@@ -43,6 +43,12 @@ import { SearchVendorPipe } from './core/pipes/search-vendor.pipe';
 import { SearchProductPipe} from './core/pipes/search-product.pipe';
 import { SearchRequestPipe} from './core/pipes/search-request.pipe';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatSliderModule } from '@angular/material/slider';
+import { TabletestComponent } from './core/logger/tabletest/tabletest.component'
+
+
 
 @NgModule({
   declarations: [
@@ -77,12 +83,16 @@ import { SearchRequestPipe} from './core/pipes/search-request.pipe';
     SearchRequestPipe,
     HomeComponent,
     RequestReviewComponent,
+    TabletestComponent,    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    MatTableModule,
+    MatSliderModule,
+    BrowserAnimationsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

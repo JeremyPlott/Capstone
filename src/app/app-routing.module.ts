@@ -28,6 +28,8 @@ import { RequestReviewComponent } from './prs/request/request-review/request-rev
 import { RequestLineCreateComponent } from './prs/requestlines/requestline-create/requestlines-create.component';
 import { RequestLineEditComponent } from './prs/requestlines/requestline-edit/requestlines-edit.component';
 
+import { TabletestComponent } from './core/logger/tabletest/tabletest.component';
+
 const routes: Routes = [
   { path:'', redirectTo: '/home', pathMatch: 'full'},
   { path:'home', component: HomeComponent },
@@ -56,6 +58,8 @@ const routes: Routes = [
   
   { path:'requestlines/create/:id', component: RequestLineCreateComponent },
   { path:'requestlines/edit/:id', component: RequestLineEditComponent },
+
+  { path: 'tabletest', component: TabletestComponent },
   
   { path:'**', component: FourOhFourComponent }
 ];

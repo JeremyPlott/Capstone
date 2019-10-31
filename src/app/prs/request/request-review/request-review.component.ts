@@ -7,6 +7,7 @@ import { RequestLine } from '../../requestlines/requestline.class';
 import { RequestLineService } from '../../requestlines/requestline.service';
 import { SystemService } from '../../../core/system/system.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { request } from 'http';
 
 
 @Component({
@@ -21,6 +22,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
 })
+
 export class RequestReviewComponent implements OnInit {
 
   requests: Request[] = [];
@@ -31,17 +33,12 @@ export class RequestReviewComponent implements OnInit {
   rid: string;
   showtable: boolean = false;
   requestlines: RequestLine[] = [];
+  idx: number;
 
-  columnsToDisplay = ['Id', 'Status', 'User', 'Description', 'Total'];
-
-
-  showtbl() {
-    this.showtable = !this.showtable;
+  showtbl(id) { 
+    this.idx = id;
+    this.showtable = !this.showtable;    
   }
-
-  // findDetails(request) {
-  //   return this.requestlines.filter(rl => rl.requestId === request.id);
-  // }
 
   sortBy(prop: string): void {
     if(prop === this.sortCriteria) {
@@ -54,7 +51,7 @@ export class RequestReviewComponent implements OnInit {
     private requestsvc: RequestService,
     private usersvc: UserService,
     private systemsvc: SystemService,
-    private requestlinesvc: RequestLineService
+    private requestlinesvc: RequestLineService,
   ) { }
 
   ngOnInit() {
