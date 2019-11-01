@@ -45,10 +45,6 @@ export class HomeComponent implements OnInit {
     this.user = user; 
   }
 
-  ClearUser() {
-      this.user = null;
-  }
-
   GetUser(user: User) {
     return this.user;
   }
@@ -61,6 +57,7 @@ export class HomeComponent implements OnInit {
       err => {
         console.error(err);
       }
-    );    
+    ); 
+    this.systemsvc.ClearUser();
   }  
 }

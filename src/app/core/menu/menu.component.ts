@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from './menu.class';
 import { SystemService } from '../system/system.service';
+import { User } from '../../prs/user/user.class';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +11,8 @@ import { SystemService } from '../system/system.service';
 export class MenuComponent implements OnInit {
 
   loggeduser: string;
+  user: User;
+  loggedin: boolean = false;
 
   menus: Menu[] = [
     // { display: 'PRS', link: '/home', tip: 'Home page'},
@@ -21,14 +24,25 @@ export class MenuComponent implements OnInit {
     { display: 'About', link: '/about', tip: 'About me'},
     { display: 'Logout', link: '/home', tip: 'Logout'},
   ];
+  menusmall: Menu[] = [
+    { display: 'Login', link: '/home', tip: 'Logout'},
+    { display: 'About', link: '/about', tip: 'About me'},
+  ];
 
   constructor(
     private systemsvc: SystemService
   ) { }
 
   ngOnInit() {
-    this.systemsvc.CheckLogin();
-    this.loggeduser = this.systemsvc.user.username;
+    try{
+      this.user = this.systemsvc.user;
+      this.loggeduser = this.systemsvc.user.username;
+      if(this.user != null) {
+        this.loggedin = true;
+      }
+    } catch {
+
+    }
   }
 
 }

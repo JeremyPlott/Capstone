@@ -14,6 +14,10 @@ export class UserEditComponent implements OnInit {
 
   user: User;
   verifyDelete: boolean = true;
+  
+  phone1: string = null;
+  phone2: string = null;
+  phone3: string = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +27,9 @@ export class UserEditComponent implements OnInit {
     ) { }
 
   save(): void {
+    if(this.phone1 != null && this.phone2 != null && this.phone3 != null) {
+      this.user.phone = this.phone1 + "-" + this.phone2 + "-" + this.phone3;    
+    }      
     this.usersvc.change(this.user).subscribe(
       res => { console.log("Response from user edit", res);
       this.router.navigateByUrl('/users/list') 

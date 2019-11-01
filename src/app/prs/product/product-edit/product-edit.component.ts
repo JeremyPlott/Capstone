@@ -27,6 +27,7 @@ export class ProductEditComponent implements OnInit {
     ) { }
 
   save(): void {
+    console.log(this.product);
     this.productsvc.change(this.product).subscribe(
       res => { console.log("Response from product edit", res);
       this.router.navigateByUrl('/products/list') 

@@ -15,6 +15,10 @@ export class VendorEditComponent implements OnInit {
   vendor: Vendor;
   verifyDelete: boolean = true;
 
+  phone1: string = null;
+  phone2: string = null;
+  phone3: string = null;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,9 +27,12 @@ export class VendorEditComponent implements OnInit {
     ) { }
 
   save(): void {
+    if(this.phone1 != null && this.phone2 != null && this.phone3 != null) {
+      this.vendor.phone = this.phone1 + "-" + this.phone2 + "-" + this.phone3;    
+    } 
     this.vendorsvc.change(this.vendor).subscribe(
-      res => { console.log("Response from vendor edit", res);
-      this.router.navigateByUrl('/vendors/list') 
+    res => { console.log("Response from vendor edit", res);
+    this.router.navigateByUrl('/vendors/list') 
     },
       err => { console.log(err); }
     );

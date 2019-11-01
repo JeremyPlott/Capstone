@@ -61,7 +61,6 @@ export class RequestDetailComponent implements OnInit {
     this.requestlinesvc.change(requestline).subscribe(
       res => { console.log("Response from requestline edit", res);
       this.refresh();
-      // this.router.navigateByUrl(`/requests/detail/${parentReq}`) 
     },
       err => { console.log(err); }
     );

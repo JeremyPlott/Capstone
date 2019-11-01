@@ -34,18 +34,24 @@
     <tr>
       <td>State:</td>
       <td>{{vendor.state}}</td>
-      <td><input [(ngModel)]="vendor.state" type="string"></td>
+      <td><input [(ngModel)]="vendor.state" type="string" placeholder="XX" minlength="2" maxlengths="2"></td>
     </tr>
     <tr>
       <td>Zip:</td>
       <td>{{vendor.zip}}</td>
-      <td><input [(ngModel)]="vendor.zip" type="string"></td>
+      <td><input [(ngModel)]="vendor.zip" type="string" placeholder="xxxxx" minlength="5" maxlength="5"></td>
     </tr>
     <tr>
-      <td>Phone:</td>
-      <td>{{vendor.phone}}</td>
-      <td><input [(ngModel)]="vendor.phone" type="string"></td>
-    </tr>
+        <td>Phone:</td>
+        <td>{{vendor.phone}}</td>
+        <td>
+          <span>
+            <input [(ngModel)]="phone1" type="string" size="3" minlength="3" maxlength="3"> - 
+            <input [(ngModel)]="phone2" type="string" size="3" minlength="3" maxlength="3"> - 
+            <input [(ngModel)]="phone3" type="string" size="4" minlength="3" maxlength="4">
+          </span>
+        </td>
+      </tr>
     <tr>
       <td>Email:</td>
       <td>{{vendor.email}}</td>

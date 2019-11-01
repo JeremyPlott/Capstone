@@ -13,6 +13,10 @@ export class UserCreateComponent implements OnInit {
 
   user: User = new User();
 
+  phone1: string;
+  phone2: string;
+  phone3: string;
+
   constructor(
     private router: Router,
     private usersvc: UserService,
@@ -20,6 +24,7 @@ export class UserCreateComponent implements OnInit {
   ) { }
 
   save(): void {
+    this.user.phone = this.phone1 + "-" + this.phone2 + "-" + this.phone3;
     this.usersvc.create(this.user).subscribe(
       res => { console.log("Response from user create", res);
       this.router.navigateByUrl('/users/list') 
