@@ -22,6 +22,7 @@ export class RequestDetailComponent implements OnInit {
   requestline: RequestLine;
   product: Product;
   products: Product[] = [];
+  denied: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -90,6 +91,9 @@ export class RequestDetailComponent implements OnInit {
     this.requestsvc.get(requestid).subscribe(
       request => {
         this.request = request;
+        if(this.request.status == "DENIED") {
+          this.denied = true;
+        }
       },
       err => { console.error(err); }
     );

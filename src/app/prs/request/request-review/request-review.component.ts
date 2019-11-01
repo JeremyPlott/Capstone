@@ -7,7 +7,6 @@ import { RequestLine } from '../../requestlines/requestline.class';
 import { RequestLineService } from '../../requestlines/requestline.service';
 import { SystemService } from '../../../core/system/system.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { request } from 'http';
 
 
 @Component({
@@ -53,25 +52,27 @@ export class RequestReviewComponent implements OnInit {
   approve(request: Request): void {
     this.requestsvc.approve(request).subscribe(
       res => { console.log("Response from request approve", res);
-      this.refresh();
     },
-      err => { console.log(err); }
-    );
+    err => { console.log(err); }
+    );    
+    this.refresh();
   }
   deny(request: Request): void {    
     this.requestsvc.deny(request).subscribe(
       res => { console.log("Response from request deny", res);
-      this.refresh();
     },
     err => { console.log(err); }
     );
+    this.refresh();
   }
 
   refresh(): void {
+    this.showtable = false; //is this necessary ? fix refresh function then try without
+    this.showreject = false;
+    this.requests = [];
     this.requestsvc.listRevs(this.rid).subscribe(
       requests => {
         this.requests = requests;
-        console.log("Reviews", requests);
       }, 
       err => {
         console.error(err);
@@ -98,11 +99,11 @@ export class RequestReviewComponent implements OnInit {
     private requestsvc: RequestService,
     private usersvc: UserService,
     private systemsvc: SystemService,
-    private requestlinesvc: RequestLineService,
   ) { }
 
   ngOnInit() {
     this.systemsvc.CheckLogin();
+    this.systemsvc.CheckAdmRev();
     this.rid = this.systemsvc.user.id.toString();
     this.requestsvc.listRevs(this.rid).subscribe(
       requests => {

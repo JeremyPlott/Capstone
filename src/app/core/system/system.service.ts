@@ -22,6 +22,12 @@ export class SystemService {
             this.router.navigateByUrl('/home')
         }
     }
+
+    CheckAdmRev() {
+        if(this.user.isAdmin == false && this.user.isReviewer == false) {
+            this.router.navigateByUrl('/home')
+        }
+    }
     
     login(username, password): Observable<User> | null {      
         return this.http.get(`${baseUrl}/${username}/${password}`) as Observable<User>;

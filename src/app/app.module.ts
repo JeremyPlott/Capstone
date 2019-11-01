@@ -31,6 +31,7 @@ import { RequestCreateComponent } from './prs/request/request-create/request-cre
 import { RequestEditComponent } from './prs/request/request-edit/request-edit.component';
 import { RequestListComponent } from './prs/request/request-list/request-list.component';
 import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
+import { RequestMylistComponent } from './prs/request/request-mylist/request-mylist.component';
 
 import { RequestReviewComponent } from './prs/request/request-review/request-review.component';
 
@@ -78,6 +79,7 @@ import { AboutComponent } from './core/about/about.component';
     RequestLineCreateComponent,
     RequestLineEditComponent,
     RequestReviewComponent,
+    RequestMylistComponent,    
     SortPipe,
     SearchUserPipe,
     SearchVendorPipe,
@@ -87,7 +89,7 @@ import { AboutComponent } from './core/about/about.component';
     RequestReviewComponent,
     TabletestComponent,
     SearchReviewPipe,
-    AboutComponent,    
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,13 +8,12 @@
   <table class="table table.sm">
     <tr>
       <td>Id:</td>
-      <td>{{vendor.id}}</td>
-      <td><input [(ngModel)]="vendor.id" type="number" disabled></td>
+      <td [attr.colspan]="2">{{vendor.id}}</td>
     </tr>
     <tr>
       <td>Code:</td>
       <td>{{vendor.code}}</td>
-      <td><input [(ngModel)]="vendor.code" type="string"></td>
+      <td hidden><input [(ngModel)]="vendor.code" type="string" disabled></td>
     </tr>
     <tr>
       <td>Name:</td>

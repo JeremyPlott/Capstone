@@ -13,14 +13,23 @@ export class MenuComponent implements OnInit {
   loggeduser: string;
   user: User;
   loggedin: boolean = false;
+  admrev: boolean = false;
 
   menus: Menu[] = [
-    // { display: 'PRS', link: '/home', tip: 'Home page'},
     { display: 'Users', link: '/users/list', tip: 'User list'}, 
     { display: 'Vendors', link: '/vendors/list', tip: 'Vendor list'},
     { display: 'Products', link: '/products/list', tip: 'Product list'},
     { display: 'Requests', link: '/requests/list', tip: 'Request list'},
+    { display: 'My Requests', link: '/requests/mylist', tip: 'My requests'},
     { display: 'Review', link: '/requests/review', tip: 'Requests to be reviewed'},
+    { display: 'About', link: '/about', tip: 'About me'},
+    { display: 'Logout', link: '/home', tip: 'Logout'},
+  ];
+  menunorm: Menu[] = [
+    { display: 'Users', link: '/users/list', tip: 'User list'}, 
+    { display: 'Vendors', link: '/vendors/list', tip: 'Vendor list'},
+    { display: 'Products', link: '/products/list', tip: 'Product list'},
+    { display: 'Requests', link: '/requests/list', tip: 'Request list'},
     { display: 'About', link: '/about', tip: 'About me'},
     { display: 'Logout', link: '/home', tip: 'Logout'},
   ];
@@ -37,9 +46,15 @@ export class MenuComponent implements OnInit {
     try{
       this.user = this.systemsvc.user;
       this.loggeduser = this.systemsvc.user.username;
+
       if(this.user != null) {
         this.loggedin = true;
+
+        if(this.user.isAdmin == true || this.user.isReviewer == true) {
+          this.admrev = true;
+        }
       }
+
     } catch {
 
     }

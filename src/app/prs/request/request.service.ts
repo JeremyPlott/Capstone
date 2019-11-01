@@ -6,6 +6,7 @@ import { RequestLineService } from '../requestlines/requestline.service';
 
 const baseUrl = "http://localhost:50288/api/requests";
 const revUrl = "http://localhost:50288/api/requests/review"
+const myUrl = "http://localhost:50288/api/requests/mylist"
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,9 @@ export class RequestService {
   }  
   listRevs(rid: string): Observable<Request[]> {
     return this.http.get(`${revUrl}/${rid}`) as Observable<Request[]>;
+  }
+  mylist(myid: string): Observable<Request[]> {
+    return this.http.get(`${myUrl}/${myid}`) as Observable<Request[]>;
   }
   get(id: string): Observable<Request> {
     return this.http.get(`${baseUrl}/${id}`) as Observable<Request>;
@@ -38,5 +42,7 @@ export class RequestService {
     return this.http.put(`${baseUrl}/deny/${request.id}`, request) as Observable<any>;
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient    
+  ) { }
 }

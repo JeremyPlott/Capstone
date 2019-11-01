@@ -23,6 +23,7 @@ export class RequestEditComponent implements OnInit {
   user: User;
   requestLines: RequestLine[] = [];
   products: Product[] = [];
+  denied: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -64,6 +65,9 @@ export class RequestEditComponent implements OnInit {
     this.requestsvc.get(requestid).subscribe(
       request => {
         this.request = request;
+        if(this.request.status == "DENIED") {
+          this.denied = true;
+        }
       },
     );
     this.productsvc.list().subscribe(
