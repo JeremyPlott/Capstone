@@ -16,14 +16,11 @@ export class RequestListComponent implements OnInit {
 
   requests: Request[] = [];
   users: User[] = [];
-  sortCriteria: any = "id";
+  sortCriteria: string = "id";
   sortOrder: string = "asc";
   searchCriteria: string = "";
 
-  sortBy(prop: any): void {
-    try {
-      Number(prop);
-    } catch{}
+  sortBy(prop: string): void {
     if(prop === this.sortCriteria) {
       this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
     }
