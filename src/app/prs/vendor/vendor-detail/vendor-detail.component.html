@@ -1,8 +1,9 @@
+<app-menu></app-menu>
 <div class="component" *ngIf="vendor">
   <div class="header">      
-    <span class="pagetitle">Vendor Detail</span> | 
-    <span class="actiondetail">
-      <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a>
+    <span class="pagetitle">Vendor Detail</span>
+    <span class="actiondetail" [hidden]="!this.systemsvc.user.isAdmin">
+       | <a routerLink="/vendors/edit/{{vendor.id}}" >Edit</a>
     </span> |
     <span class="createlink">
       <a routerLink="/vendors/list">Back to vendor list</a>

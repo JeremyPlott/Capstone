@@ -28,6 +28,11 @@ export class SystemService {
             this.router.navigateByUrl('/home')
         }
     }
+    CheckAdmin() {
+        if(this.user.isAdmin == false) {
+            this.router.navigateByUrl('/home')
+        }
+    }
     
     login(username, password): Observable<User> | null {      
         return this.http.get(`${baseUrl}/${username}/${password}`) as Observable<User>;

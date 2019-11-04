@@ -1,9 +1,9 @@
 <app-menu></app-menu>
 <div class="component">
   <div class="header">
-    <span class="pagetitle">Vendor List</span> | 
-    <span class="createlink">
-      <a routerLink="/vendors/create">Create</a>
+    <span class="pagetitle">Vendor List</span>
+    <span class="createlink" [hidden]="!this.systemsvc.user.isAdmin">
+      | <a routerLink="/vendors/create">Create</a>
     </span>
     <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
   </div>
@@ -25,8 +25,8 @@
         <td>{{vendor.city}}</td>
         <td>
           <span class="actiondetail">
-            <a routerLink="/vendors/detail/{{vendor.id}}">Details</a> |
-            <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a>
+            <a routerLink="/vendors/detail/{{vendor.id}}">Details</a>
+            <span [hidden]="!this.systemsvc.user.isAdmin"> | <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a></span>
           </span>
         </td>
       </tr>

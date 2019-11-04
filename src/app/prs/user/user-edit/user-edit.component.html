@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="component" *ngIf="user">
     <div class="header">      
       <span class="pagetitle">User Edit</span> | 
@@ -53,12 +54,12 @@
     <tr>
       <td>Reviewer:</td>
       <td>{{user.isReviewer | bool}}</td>
-      <td><input [(ngModel)]="user.isReviewer" type="checkbox"></td>
+      <td><input [(ngModel)]="user.isReviewer" type="checkbox" [disabled]="this.systemsvc.user.isAdmin == false"></td>
     </tr>
     <tr>
       <td>Admin:</td>
       <td>{{user.isAdmin | bool}}</td>
-      <td><input [(ngModel)]="user.isAdmin" type="checkbox"></td>
+      <td><input [(ngModel)]="user.isAdmin" type="checkbox" [disabled]="this.systemsvc.user.isAdmin == false"></td>
     </tr>
   </table>
   <div>

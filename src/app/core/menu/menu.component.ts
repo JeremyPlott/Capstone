@@ -30,6 +30,7 @@ export class MenuComponent implements OnInit {
     { display: 'Vendors', link: '/vendors/list', tip: 'Vendor list'},
     { display: 'Products', link: '/products/list', tip: 'Product list'},
     { display: 'Requests', link: '/requests/list', tip: 'Request list'},
+    { display: 'My Requests', link: '/requests/mylist', tip: 'My requests'},
     { display: 'About', link: '/about', tip: 'About me'},
     { display: 'Logout', link: '/home', tip: 'Logout'},
   ];

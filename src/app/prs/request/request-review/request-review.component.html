@@ -41,9 +41,16 @@
               </ng-container>
 
               <ng-container *ngIf="showtable && idx == request.id">
-                <button (click)="approve(request)" class="btn btn-success btn-sm">Approve</button> | 
-                <button (click)="showrej()" class="btn btn-danger btn-sm">Reject</button> | 
-                <span *ngIf="showreject">
+
+                  <button (click)="approve(request)" class="btn btn-success btn-sm"
+                  [disabled]="!this.systemsvc.user.isReviewer && !this.systemsvc.user.isAdmin"
+                  >Approve</button> | 
+
+                  <button (click)="showrej()" class="btn btn-danger btn-sm"
+                  [disabled]="!this.systemsvc.user.isReviewer && !this.systemsvc.user.isAdmin"
+                  >Reject</button> | 
+
+                  <span *ngIf="showreject">
                   <input id="rejectbox" type="string" [(ngModel)]="request.rejectionReason" placeholder="Supply rejection reason">
                   <span>&nbsp;&nbsp;</span>  
                   <button (click)="deny(request)" class="btn btn-danger btn-sm">Confirm</button>

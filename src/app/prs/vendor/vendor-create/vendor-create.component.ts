@@ -35,6 +35,7 @@ export class VendorCreateComponent implements OnInit {
 
   ngOnInit() {
     this.systemsvc.CheckLogin();
+    this.systemsvc.CheckAdmin();
   }
 
 }

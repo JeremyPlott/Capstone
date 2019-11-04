@@ -44,6 +44,7 @@ export class UserCreateComponent implements OnInit {
 
   ngOnInit() {
     this.systemsvc.CheckLogin();
+    this.systemsvc.CheckAdmin();
   }
 
 }

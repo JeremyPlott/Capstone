@@ -15,7 +15,6 @@ export class MenuitemComponent implements OnInit {
     ) { }
     
   ngOnInit() {
-    // this.systemsvc.CheckLogin();
   }
 
 }

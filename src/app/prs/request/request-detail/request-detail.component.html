@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="component" *ngIf="request">
     <div class="header">      
       <span class="pagetitle">Lines</span> | 
@@ -42,7 +43,10 @@
           </option>
         </select>            
       </td>
-      <td><input [disabled]="denied" [(ngModel)]="requestline.quantity" type="number" oninput="this.value = Math.abs(this.value)"></td>
+      <td>
+        <input [disabled]="denied" [(ngModel)]="requestline.quantity" 
+        type="number" oninput="this.value = Math.abs(this.value)">
+      </td>
       <td>{{requestline.product.price | currency}}</td>
       <td>{{requestline.product.price * requestline.quantity | currency}}</td>
       <td>

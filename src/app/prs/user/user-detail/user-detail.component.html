@@ -1,7 +1,8 @@
+<app-menu></app-menu>
 <div class="component" *ngIf="user">
   <div class="header">      
-    <span class="pagetitle">User Detail</span> | 
-    <span class="actiondetail">
+    <span class="pagetitle">User Detail</span>
+    <span class="actiondetail" [hidden]="!this.systemsvc.user.isAdmin && this.systemsvc.user.id != this.user.id"> | 
       <a routerLink="/users/edit/{{user.id}}">Edit</a>
     </span> |
     <span class="createlink">

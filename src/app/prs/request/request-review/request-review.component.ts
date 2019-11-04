@@ -37,6 +37,9 @@ export class RequestReviewComponent implements OnInit {
   showreject: boolean = false;
 
   showtbl(id) { 
+    if(this.showtable) {
+      this.showtable = !this.showtable;
+    }
     if(this.idx == id) {
       this.idx = 0;
       this.showtable = !this.showtable;    
@@ -44,7 +47,7 @@ export class RequestReviewComponent implements OnInit {
     }
     this.idx = id;
     this.showtable = !this.showtable;    
-  }
+  }  
   showrej() {
     this.showreject = !this.showreject;
   }
@@ -67,9 +70,8 @@ export class RequestReviewComponent implements OnInit {
   }
 
   refresh(): void {
-    this.showtable = false; //is this necessary ? fix refresh function then try without
+    this.showtable = false;
     this.showreject = false;
-    // this.requests = [];
     this.requestsvc.listRevs(this.rid).subscribe(
       requests => {
         this.requests = requests;

@@ -66,6 +66,9 @@ export class UserEditComponent implements OnInit {
     this.usersvc.get(userid).subscribe(
       user => {
         this.user = user;
+        if(this.user.id != this.systemsvc.user.id && !this.systemsvc.user.isAdmin) {
+          this.router.navigateByUrl('/users/list') 
+        }
       },
       err => { console.error(err); }
     );

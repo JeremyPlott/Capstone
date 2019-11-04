@@ -20,13 +20,16 @@
       </tr>
       <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder">
         <td>{{request.id}}</td>
-        <td>{{request.status}}</td>
+        <td>
+          <!-- <span id="statuscolor">■</span> -->
+          {{request.status}}</td>
         <td>{{request.user.username}}</td>
         <td>{{request.description}}</td>
         <td>{{request.justification}}</td>
         <td>{{request.total | currency}}</td>
         <td>
-          <span class="actiondetail">
+          <span class="actiondetail"
+              [hidden]="!this.systemsvc.user.isAdmin && this.systemsvc.user.id != request.user.id">
             <a routerLink="/requests/detail/{{request.id}}">Lines</a> |
             <a routerLink="/requests/edit/{{request.id}}">Other</a>
           </span>
