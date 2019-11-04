@@ -52,24 +52,24 @@ export class RequestReviewComponent implements OnInit {
   approve(request: Request): void {
     this.requestsvc.approve(request).subscribe(
       res => { console.log("Response from request approve", res);
+      this.refresh();
     },
     err => { console.log(err); }
     );    
-    this.refresh();
   }
   deny(request: Request): void {    
     this.requestsvc.deny(request).subscribe(
       res => { console.log("Response from request deny", res);
+      this.refresh();
     },
     err => { console.log(err); }
     );
-    this.refresh();
   }
 
   refresh(): void {
     this.showtable = false; //is this necessary ? fix refresh function then try without
     this.showreject = false;
-    this.requests = [];
+    // this.requests = [];
     this.requestsvc.listRevs(this.rid).subscribe(
       requests => {
         this.requests = requests;
